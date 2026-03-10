@@ -11,3 +11,10 @@ form.addEventListener("submit", function (event) {
 
   input.value = "";
 });
+
+const map = L.map("mapContainer").setView([40.4168, -3.7038], 13);
+
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+  attribution: "&copy; OpenStreetMap",
+}).addTo(map);
