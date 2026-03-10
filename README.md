@@ -29,4 +29,4 @@ The purpose of this project is to practice JavaScript application development wh
 
 This project also reflects my professional experience in transport coordination, where route optimization and location management are key aspects of daily operations.
 
-## Live (https://truscaivoichita.github.io/logistics-dashboard/)
+## [Live](https://truscaivoichita.github.io/logistics-dashboard/)
