@@ -10,16 +10,39 @@ const form = document.getElementById("locationForm");
 const input = document.getElementById("locationInput");
 const list = document.getElementById("locationsList");
 
-form.addEventListener("submit", function (event) {
+form.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   const location = input.value;
 
-  if (!location) return;
+  console.log("New delivery location:", location);
   const li = document.createElement("li");
   li.textContent = location;
   list.appendChild(li);
-  console.log("New delivery location:", location);
+
+  const result = await geocodeLocation(location);
+
+  if (!result) return;
+
+  const lat = result.lat;
+  const lon = result.lon;
+
+  L.marker([lat, lon]).addTo(map).bindPopup(location);
 
   input.value = "";
 });
+
+async function geocodeLocation(location) {
+  const response = await fetch(
+    `https://nominatim.openstreetmap.org/search?format=json&q=${location}`,
+  );
+
+  const data = await response.json();
+  console.log(data);
+
+  if (data.length === 0) {
+    alert("Location not found");
+    return null;
+  }
+  return data[0];
+}
