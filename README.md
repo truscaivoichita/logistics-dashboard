@@ -28,3 +28,5 @@ The goal is to build a lightweight dashboard that helps visualize delivery route
 The purpose of this project is to practice JavaScript application development while building a tool related to logistics operations. It focuses on working with map APIs, handling geographic data, and building interactive user interfaces.
 
 This project also reflects my professional experience in transport coordination, where route optimization and location management are key aspects of daily operations.
+
+## Live (https://truscaivoichita.github.io/logistics-dashboard/)
