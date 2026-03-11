@@ -27,6 +27,8 @@ form.addEventListener("submit", async function (event) {
   const lat = result.lat;
   const lon = result.lon;
 
+  map.setView([lat, lon], 10);
+
   L.marker([lat, lon]).addTo(map).bindPopup(location);
 
   input.value = "";
