@@ -30,6 +30,7 @@ form.addEventListener("submit", async function (event) {
   map.setView([lat, lon], 10);
 
   L.marker([lat, lon]).addTo(map).bindPopup(location);
+  marker.openPopup();
 
   input.value = "";
 });
