@@ -41,6 +41,13 @@ function addLocationToList(location) {
   li.textContent = location;
   list.appendChild(li);
 }
+function saveLocation(location) {
+  const stored = JSON.parse(localStorage.getItem("locations")) || [];
+  console.log("location: ", location);
+  stored.push(location);
+  localStorage.setItem("locations", JSON.stringify(stored));
+  console.log("stored location: ", stored);
+}
 
 async function handleFormSubmit(event) {
   event.preventDefault();
@@ -53,6 +60,7 @@ async function handleFormSubmit(event) {
   map.setView([lat, lon], 10);
   addMarker(map, lat, lon, location);
   addLocationToList(location);
+  saveLocation(location);
   input.value = "";
 }
 
