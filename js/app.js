@@ -41,11 +41,16 @@ function addLocationToList(location) {
   li.textContent = location;
   list.appendChild(li);
 }
+
 function saveLocation(location) {
   const stored = JSON.parse(localStorage.getItem("locations")) || [];
   console.log("location: ", location);
   stored.push(location);
   localStorage.setItem("locations", JSON.stringify(stored));
+  console.log("stored location: ", stored);
+}
+function loadSavedLocations() {
+  const stored = JSON.parse(localStorage.getItem("locations")) || [];
   console.log("stored location: ", stored);
 }
 
@@ -66,6 +71,7 @@ async function handleFormSubmit(event) {
 
 function initEvents() {
   form.addEventListener("submit", handleFormSubmit);
+  loadSavedLocations();
 }
 
 initEvents();
